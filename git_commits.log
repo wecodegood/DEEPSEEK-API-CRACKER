@@ -1,0 +1,22 @@
+commit_1:
+    i forgot to commit from the beginning of the project
+    in the first commit we have initialised our connection
+    project:
+        main.py --> the file that we run to use the app
+        initMods --> initialise moduals:
+            Loginer.py --> logs into deepseek automatically
+            Message.py --> sents a initialise message for deepseek, that contains a prompt to optimise it for the app
+            /
+    run_timeline:
+        1.firefox opens
+        2.Loginer.py logs into deepseek with email and password
+        3.Message.py sents a message with the initialise prompt
+        4.we get inside a loop:
+            1.loop happens forever
+            2.in this loop we sent a message to deepseek
+            /
+        /
+    next_step:
+        i will try to get deepseeks responde to our prompt and display it in the terminal
+    
+
