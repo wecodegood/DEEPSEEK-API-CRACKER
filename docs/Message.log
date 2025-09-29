@@ -1,0 +1,36 @@
+in this file we have a function that sends an initial system message to configure the AI's behavior for the CLI interface
+
+
+
+line 1-8:
+    defines the InitMessage function
+    parameters:
+        browser: browser instance for web automation
+        page: page object representing the current webpage
+
+line 3-4:
+    creates a system prompt string that configures the AI's behavior
+    the prompt instructs the AI to:
+        act as deepseek_cli, a CLI version of the DeepSeek LLM
+        understand it's being run through a headless web automator
+        use the special character "..S.." at the beginning of every response
+        add a newline after the special character for clean formatting
+        not mention the web automation aspect to users
+        respond as if being asked through an API
+        treat this initialization as a simple "Hello" greeting
+
+line 6:
+    fills the message input field with the system prompt
+    uses page.get_by_placeholder() to find the "Message DeepSeek" input field
+    fills it with the configured prompt text
+
+line 8:
+    sends the message by pressing Enter
+    uses page.keyboard.press() to simulate Enter key press
+    this submits the system message to configure the AI's behavior
+
+
+
+this doc is written personally by me once, and then it will be maintained by ai till the really end of this project, then ill change it again, 
+maintaining a really good doc is hard, specially WHILE codig the project, ai will do the hard part of my docs, 
+after im sure that this project is ready for a launch, then ill doc it manually AGAIN

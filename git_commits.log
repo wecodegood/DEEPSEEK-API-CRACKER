@@ -1,4 +1,4 @@
-commit_1:
+commit_1 --> big commit 1:
     i forgot to commit from the beginning of the project
     in the first commit we have initialised our connection
     project:
@@ -21,4 +21,10 @@ commit_1:
     /
 
 
+commit_2_3:
+    i dont really know what i did in this commit's, 
+
+
+commit_3_3:
+    i added a doc folder, which have the documents in there, right now only the document for main.py
 
