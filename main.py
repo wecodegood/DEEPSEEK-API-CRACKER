@@ -3,6 +3,8 @@ from playwright.sync_api import sync_playwright
 from initMods.Loginer import LoginToDeepSeek
 from initMods.Message import InitMessage
 from initMods.GetLastResponse import GetLastResponse
+
+from useExamples.chatWithModel import ChatExample
 import os
 
 email = "your5dad6666@gmail.com"
@@ -38,7 +40,7 @@ with sync_playwright() as p:
 
 
 
-
+    ChatExample(page)
 
     time.sleep(10000)
 

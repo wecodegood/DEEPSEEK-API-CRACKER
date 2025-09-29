@@ -36,3 +36,8 @@ commit_5 --> not too big, but big:
         Message.log --> is a log on how we enter our prompt in the text feild and sent it
         MainPy.log --> is a guid on how we gather all of our moduals together and run the app
     all are ai maintained till a certain point, where i will manually change them, Later
+
+
+
+commit_6:
+    i added a useExample folder, which in there, it contains only one file, that simulates a terminal chatting system
