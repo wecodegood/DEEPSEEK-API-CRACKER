@@ -1,0 +1,54 @@
+in this file we gather all our moduals and combine them to make a chatting experience
+
+
+
+line 1-5:
+    importing librarys
+    librarys:
+        time: for hesitating and waiting for certain events to happen
+        playwright: the main library/framwork that we use to web scrape and web automate
+        initMods.Loginer: imports the def named LoginToDeepSeek from Loginer file which is in initMods
+        initMods.Message: imports the def named InitMessage that is from Message file which is in initMods
+        initMods.GetLastResponse: imports the def named GetLastResponse from the file named GetLastResponse which is in initMods
+
+line 9-10:
+    makes the main librarys for login 
+    vars:
+        email: the email for the email feild
+        password: the password for the password feild
+
+line 12-16:
+    initilises the browser 
+    browser:
+        we init a browser with the function named sync_playwright,
+        init it as p
+        make a varable named browser to store the browsers stuff
+        make it launch firefox as its browser
+        with its headless option being false to make it a visible browser app
+
+line 20-22:
+    we change some prefrencec for the browser to make the color prefre dark, this way the websites go dark mode
+
+line 24:
+    using the prefrences we mke a PAGE, which is basically our webpage
+
+line 30-31:
+    we use our two functions that we imported to init the site
+    init:
+        login:
+            using email, password, browser(for actually doing it) and page(for knowing where to do it)
+        InitMessage:
+            to tell the ai that this is a terminal based client and it should so some things, to optimize the experience
+
+line 37-44:
+    we enter a chat simulator, using a loop that goes forever, each time senting, and getting a Message
+    we sent using a simple line of code, and a press of a virual enter button
+
+    and we get the response from the file/function GetLastResponse
+    then we print it in the terminal
+
+
+
+this doc is written personally by me once, and then it will be maintained by ai till the really end of this project, then ill change it again, 
+maintaining a really good doc is hard, specially WHILE codig the project, ai will do the hard part of my docs, 
+after im sure that this project is ready for a launch, then ill doc it manually AGAIN  

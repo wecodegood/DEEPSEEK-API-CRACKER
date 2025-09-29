@@ -1,8 +1,8 @@
-from cmd import PROMPT
 import time
 from playwright.sync_api import sync_playwright
 from initMods.Loginer import LoginToDeepSeek
 from initMods.Message import InitMessage
+from initMods.GetLastResponse import GetLastResponse
 
 
 
@@ -28,7 +28,7 @@ with sync_playwright() as p:
 
 
     LoginToDeepSeek(email, password, browser, page) # this is a function from a file named Loginer.py located in initMods folder
-    InitMessage(browser, page)
+    InitMessage(browser, page) # this is a function also from a file named emssage.py located in initMods folder
 
 
 
@@ -38,6 +38,10 @@ with sync_playwright() as p:
         prompt = input("prompt:")
         page.get_by_placeholder("Message DeepSeek").fill(prompt)
         page.keyboard.press("Enter")
+        
+        # Get the response (function now waits for completion)
+        response = GetLastResponse(page)
+        print("DeepSeek response:", response)
 
 
     time.sleep(10000)
