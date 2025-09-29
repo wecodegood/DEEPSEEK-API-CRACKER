@@ -28,3 +28,11 @@ commit_2_3:
 commit_3_3:
     i added a doc folder, which have the documents in there, right now only the document for main.py
 
+commit_5 --> not too big, but big:
+    i added 3 files to the doc folder
+    files:
+        GetLastResponse.log --> is the document for how we get deepseeks response back
+        Loginer.log --> is a log on how we enter chat.deepseek.com and log into our account
+        Message.log --> is a log on how we enter our prompt in the text feild and sent it
+        MainPy.log --> is a guid on how we gather all of our moduals together and run the app
+    all are ai maintained till a certain point, where i will manually change them, Later
