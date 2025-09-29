@@ -3,13 +3,19 @@ from playwright.sync_api import sync_playwright
 from initMods.Loginer import LoginToDeepSeek
 from initMods.Message import InitMessage
 from initMods.GetLastResponse import GetLastResponse
-
-
+import os
 
 email = "your5dad6666@gmail.com"
 password = "yasin.11A"
+def clean():
+    os.system('cls') if os.name == 'nt' else os.system('clean')
+
+
 
 with sync_playwright() as p:
+
+    clean()
+
     browser = p.firefox.launch(
         headless=False,
         # slow_mo=2000
@@ -32,16 +38,6 @@ with sync_playwright() as p:
 
 
 
-
-
-    while True:
-        prompt = input("prompt:")
-        page.get_by_placeholder("Message DeepSeek").fill(prompt)
-        page.keyboard.press("Enter")
-        
-        # Get the response (function now waits for completion)
-        response = GetLastResponse(page)
-        print("DeepSeek response:", response)
 
 
     time.sleep(10000)
