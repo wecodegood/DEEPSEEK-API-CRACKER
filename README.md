@@ -1,6 +1,6 @@
 <!-- Animated header using SVG -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=800&color=00FFB4&center=true&width=600&lines=DEEPSEEK-API-CRACKER;Crack+the+Limits.+Unlock+the+Power." alt="Animated header" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=800&color=00FFB4&center=true&width=600&lines=DEEPSEEK-API-CRACKER;Crack+the+Limits." alt="Animated header" />
 </p>
 
 <p align="center">
