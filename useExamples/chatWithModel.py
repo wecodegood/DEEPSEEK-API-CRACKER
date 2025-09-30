@@ -12,6 +12,5 @@ def ChatExample(page):
         
         # Get the response (function now waits for completion)
         response = GetLastResponse(page)
-        print(colored("DeepSeek", "blue", "on_black"))
+        print(f"DeepSeek: {response}")
         print()
-        print(colored(response, "blue", "on_black"))

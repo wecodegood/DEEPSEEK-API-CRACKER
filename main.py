@@ -9,7 +9,11 @@ import os
 
 email = "your5dad6666@gmail.com"
 password = "yasin.11A"
+
 def clean():
+    """
+    this function runs the optimized command to clean the terminal
+    """
     os.system('cls') if os.name == 'nt' else os.system('clean')
 
 
