@@ -46,8 +46,8 @@ The example script currently reads hardcoded placeholders in `creds.py`:
 
 ```startLine:endLine:creds.py
 1:3:creds.py
-email = "your5dad6666@gmail.com"
-password = "yasin.11A"
+email = "YOUR EMAIL"
+password = "YOUR PASSWORD"
 ```
 
 Replace these with your own DeepSeek login email and password before running. For better hygiene, consider using environment variables or a local `.env` file and importing them into `creds.py` (not included by default).
@@ -151,8 +151,8 @@ python -m playwright install firefox
 
 ```startLine:endLine:creds.py
 1:3:creds.py
-email = "your5dad6666@gmail.com"
-password = "yasin.11A"
+email = "ایمیل شما"
+password = "پسوورد شما"
 ```
 
 این‌ها را با ایمیل و گذرواژه خود جایگزین کنید. برای امنیت بهتر، می‌توانید از متغیرهای محیطی یا فایل `.env` استفاده کرده و در `creds.py` بخوانید (به‌صورت پیش‌فرض پیاده‌سازی نشده است). توجه کنید اطلاعات واقعی را در گیت کامیت نکنید.
