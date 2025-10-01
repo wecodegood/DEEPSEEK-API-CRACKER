@@ -1,14 +1,16 @@
+from email import message
 import time
 from playwright.sync_api import sync_playwright
 from initMods.Loginer import LoginToDeepSeek
 from initMods.Message import InitMessage
 from initMods.GetLastResponse import GetLastResponse
+from initMods.MessageLinux import InitLinuxMessage
 
+from creds import *
+
+from Mods.Message import Message
 from useExamples.chatWithModel import ChatExample
 import os
-
-email = "your5dad6666@gmail.com"
-password = "yasin.11A"
 
 def clean():
     """
@@ -37,14 +39,18 @@ with sync_playwright() as p:
 
 
 
-
-
     LoginToDeepSeek(email, password, browser, page) # this is a function from a file named Loginer.py located in initMods folder
-    InitMessage(browser, page) # this is a function also from a file named emssage.py located in initMods folder
-
-
+    # InitMessage(browser, page) # this is a function also from a file named emssage.py located in initMods folder
+    # InitLinuxMessage(browser, page)
+    # GetLastResponse(page)
 
     ChatExample(page)
+
+    time.sleep(15)
+
+
+
+
 
     time.sleep(10000)
 
