@@ -33,4 +33,4 @@ def GetLastResponse(page):
         except:
             pass
         
-        time.sleep(0.2)  # Check every 0.2 seconds for faster response
+        # time.sleep(0.2)  # Check every 0.2 seconds for faster response
