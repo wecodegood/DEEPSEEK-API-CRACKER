@@ -41,7 +41,9 @@ with sync_playwright() as p:
 
     LoginToDeepSeek(email, password, browser, page) # this is a function from a file named Loginer.py located in initMods folder
     # InitMessage(browser, page) # this is a function also from a file named emssage.py located in initMods folder
-    # InitLinuxMessage(browser, page)
+
+    InitLinuxMessage(browser, page)
+
     # GetLastResponse(page)
 
     ChatExample(page)
