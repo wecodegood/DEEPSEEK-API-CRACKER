@@ -1,23 +1,32 @@
-from email import message
-import time
-from playwright.sync_api import sync_playwright
-from initMods.Loginer import LoginToDeepSeek
-from initMods.Message import InitMessage
-from initMods.GetLastResponse import GetLastResponse
-from initMods.MessageLinux import InitLinuxMessage
 
+# librarys:
+import time
+
+
+#framework
+from playwright.sync_api import sync_playwright
+
+# moduals:
+    #main moduals:
+from initMods.Loginer import LoginToDeepSeek
+from initMods.GetLastResponse import GetLastResponse
+from useExamples.chatWithModel import chatLoop
+
+#moduals:
+    #init prompt moduals:
+from initMods.Message import InitChatMessage
+from initMods.Message import InitLinuxMessage
+
+# moduals: 
+    #creds moduals:
 from creds import *
 
-from Mods.Message import Message
-from useExamples.chatWithModel import ChatExample
-import os
 
-def clean():
-    """
-    this function runs the optimized command to clean the terminal
-    """
-    os.system('cls') if os.name == 'nt' else os.system('clean')
-
+#moduals:
+    # simple moduals:
+from Mods.Message import SendMessage
+from Mods.Clear import clean
+# from Mods.RunLinuxCommand import run_linux_cmd
 
 
 with sync_playwright() as p:
@@ -25,7 +34,7 @@ with sync_playwright() as p:
     clean()
 
     browser = p.firefox.launch(
-        headless=False,
+        headless=True,
         # slow_mo=2000
     )
 
@@ -40,13 +49,14 @@ with sync_playwright() as p:
 
 
     LoginToDeepSeek(email, password, browser, page) # this is a function from a file named Loginer.py located in initMods folder
-    # InitMessage(browser, page) # this is a function also from a file named emssage.py located in initMods folder
-    # InitLinuxMessage(browser, page)
-    # GetLastResponse(page)
 
-    ChatExample(page)
+    InitChatMessage(browser, page)
 
-    time.sleep(15)
+    chatLoop(page)
+    
+        
+
+
 
 
 
