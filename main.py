@@ -53,8 +53,7 @@ with sync_playwright() as p:
     InitChatMessage(browser, page)
 
     chatLoop(page)
-    
-        
+
 
 
 
