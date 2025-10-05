@@ -16,3 +16,13 @@ def InitLinuxMessage(browser, page):
     page.get_by_placeholder("Message DeepSeek").fill(prompt)
 
     page.keyboard.press("Enter")
+
+
+
+
+
+def customeInitMessage(browser, page, prompt):
+
+    page.get_by_placeholder("Message DeepSeek").fill(prompt)
+
+    page.keyboard.press("Enter")

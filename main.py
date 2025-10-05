@@ -14,8 +14,8 @@ from useExamples.chatWithModel import chatLoop
 
 #moduals:
     #init prompt moduals:
-from initMods.Message import InitChatMessage
-from initMods.Message import InitLinuxMessage
+from initMods.initMessages import InitChatMessage
+from initMods.initMessages import InitLinuxMessage
 
 # moduals: 
     #creds moduals:

@@ -3,7 +3,7 @@ def chatLoop(page):
     from colorama import init
     from termcolor import colored
     while True:
-        print(colored("print", "yellow", "on_black"))
+        print(colored("prompt", "yellow", "on_black"))
         prompt = input()
         page.get_by_placeholder("Message DeepSeek").fill(prompt)
         page.keyboard.press("Enter")
