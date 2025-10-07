@@ -31,10 +31,9 @@ from Mods.Clear import clean
 
 with sync_playwright() as p:
 
-    clean()
 
     browser = p.firefox.launch(
-        headless=True,
+        headless=False,
         # slow_mo=2000
     )
 
@@ -47,17 +46,13 @@ with sync_playwright() as p:
     page = context.new_page()
 
 
+    clean()
 
     LoginToDeepSeek(email, password, browser, page) # this is a function from a file named Loginer.py located in initMods folder
 
     InitChatMessage(browser, page)
 
     chatLoop(page)
-
-
-
-
-
 
 
 

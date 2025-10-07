@@ -1,16 +1,29 @@
+
+
 def chatLoop(page):
+    import os
     from initMods.GetLastResponse import GetLastResponse
+    from Mods.Message import SendMessage
     from colorama import init
     from termcolor import colored
-    while True:
-        print(colored("prompt", "yellow", "on_black"))
-        prompt = input()
-        page.get_by_placeholder("Message DeepSeek").fill(prompt)
-        page.keyboard.press("Enter")
 
+
+    def HelperFunctionLine(char="-"):
+        terminal_size = os.get_terminal_size()
+        print(char * terminal_size.columns)
+    
+    while True:
+        print(colored("Prompt", "yellow", "on_black"))
+        prompt = input()
+        SendMessage(page, prompt)
+
+        print()
+        HelperFunctionLine()
         print()
         
         # Get the response (function now waits for completion)
         response = GetLastResponse(page)
-        print(f"DeepSeek: {response}")
+        print(colored("DeepSeek", "yellow", "on_black"))
+        print(response)
+
         print()
