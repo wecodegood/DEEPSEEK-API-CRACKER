@@ -1,5 +1,3 @@
-
-
 def chatLoop(page):
     import os
     from initMods.GetLastResponse import GetLastResponse
@@ -23,7 +21,7 @@ def chatLoop(page):
         
         # Get the response (function now waits for completion)
         response = GetLastResponse(page)
-        print(colored("DeepSeek", "yellow", "on_black"))
-        print(response)
+        print(colored("DeepSeek", "blue", "on_black"))
+        print(f"\033[1m{response}\033[0m")
 
         print()
