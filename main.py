@@ -1,9 +1,5 @@
-
-# librarys:
-import time
-
-
 #framework
+import time
 from playwright.sync_api import sync_playwright
 
 # moduals:
@@ -41,9 +37,12 @@ with sync_playwright() as p:
     # for example here i did this to make deepseek.com go dark mode because i was getting blind
     context = browser.new_context(
         color_scheme='dark'  # to make it go dark mode
+        
     )
     
     page = context.new_page()
+
+
 
 
     clean()

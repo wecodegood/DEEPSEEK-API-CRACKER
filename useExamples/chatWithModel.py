@@ -4,19 +4,20 @@ def chatLoop(page):
     from Mods.Message import SendMessage
     from colorama import init
     from termcolor import colored
+    from ..art import art
 
-
-    def HelperFunctionLine(char="-"):
-        terminal_size = os.get_terminal_size()
-        print(char * terminal_size.columns)
+    # def lineDrawer(char="-"):
+    #     terminal_size = os.get_terminal_size()
+    #     print(char * terminal_size.columns)
     
+    print(art)
     while True:
         print(colored("Prompt", "yellow", "on_black"))
         prompt = input()
         SendMessage(page, prompt)
 
         print()
-        HelperFunctionLine()
+        # lineDrawer()
         print()
         
         # Get the response (function now waits for completion)

@@ -1,9 +1,0 @@
-library
-
-
-we import it 
-from DEEPSEEK-API-CRACKER import LoginToDeepSeek, customeInitMessage, chatloop, etc...
-
-
-and it will work 
-
