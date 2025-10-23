@@ -4,7 +4,7 @@ def chatLoop(page):
     from Mods.Message import SendMessage
     from colorama import init
     from termcolor import colored
-    from ..art import art
+    from art import art
 
     # def lineDrawer(char="-"):
     #     terminal_size = os.get_terminal_size()
