@@ -6,6 +6,7 @@ from playwright.sync_api import sync_playwright
 from initMods.Loginer import LoginToDeepSeek
 from initMods.GetLastResponse import GetLastResponse
 from useExamples.chatWithModel import chatLoop
+from useExamples.linux import Linuxloop
 
 #moduals:
     #init prompt moduals:
@@ -51,9 +52,9 @@ with sync_playwright() as p:
 
     LoginToDeepSeek(email, password, browser, page) # this is a function from a file named Loginer.py located in initMods folder
 
-    InitChatMessage(browser, page)
+    InitLinuxMessage(browser, page)
 
-    chatLoop(page)
+    Linuxloop(page)
 
 
 
