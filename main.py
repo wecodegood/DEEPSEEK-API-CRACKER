@@ -46,7 +46,11 @@ with sync_playwright() as p:
 
     InitLinuxMessage(browser, page)
 
-    chatLoop(page)
+    # Use normal chat mode
+    # chatLoop(page)
+    
+    # Use Linux terminal mode (uncomment to enable)
+    chatLoop(page, lin=True)
 
 
 
