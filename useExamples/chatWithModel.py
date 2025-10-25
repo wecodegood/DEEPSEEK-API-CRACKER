@@ -153,7 +153,7 @@ def chatLoop(page, lin=False):
                                               shell=True, 
                                               text=True, 
                                               capture_output=True,
-                                              timeout=30)
+                                              timeout=120)
                     else:  # Windows with WSL
                         print(colored("Using WSL", "blue"))
                         result = subprocess.run(["wsl", "bash", "-c", command.strip()], 
