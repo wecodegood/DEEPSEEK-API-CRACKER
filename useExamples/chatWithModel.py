@@ -28,7 +28,7 @@ def chatLoop(page, lin=False):
 
             print()
 
-    def linuxChat(page):
+    def linuxChat(page, su=False):
         import os
         import subprocess
         import platform
@@ -90,6 +90,13 @@ def chatLoop(page, lin=False):
         print(colored("AI will use cowsay for friendly communication and results!", "magenta"))
         print()
         
+        def get_sudo_password():
+            """Securely get sudo password from user"""
+            import getpass
+            print(colored("This command requires sudo access. Please enter your password:", "yellow"))
+            password = getpass.getpass("Password: ")
+            return password
+        
         def execute_command(command):
             """Execute a command and return the result with captured output"""
             try:
@@ -97,20 +104,62 @@ def chatLoop(page, lin=False):
                 print(colored(f"Current OS: {current_os}", "blue"))
                 print(colored("=" * 60, "blue"))
                 
-                # Execute the command with captured output
-                if current_os == "linux":
-                    print(colored("Using native Linux shell", "blue"))
-                    result = subprocess.run(command.strip(), 
-                                          shell=True, 
-                                          text=True, 
-                                          capture_output=True,
-                                          timeout=30)
-                else:  # Windows with WSL
-                    print(colored("Using WSL", "blue"))
-                    result = subprocess.run(["wsl", "bash", "-c", command.strip()], 
-                                          text=True, 
-                                          capture_output=True,
-                                          timeout=30)
+                # Check if command requires sudo access
+                requires_sudo = command.strip().startswith("sudo ")
+                
+                if requires_sudo:
+                    print(colored("⚠ Command requires sudo access", "yellow"))
+                    password = get_sudo_password()
+                    
+                    # Execute the command with sudo password
+                    if current_os == "linux":
+                        print(colored("Using native Linux shell with sudo", "blue"))
+                        process = subprocess.Popen(
+                            command.strip(),
+                            shell=True,
+                            stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                            text=True
+                        )
+                        stdout, stderr = process.communicate(input=password + "\n", timeout=30)
+                        result = subprocess.CompletedProcess(
+                            args=command.strip(),
+                            returncode=process.returncode,
+                            stdout=stdout,
+                            stderr=stderr
+                        )
+                    else:  # Windows with WSL
+                        print(colored("Using WSL with sudo", "blue"))
+                        process = subprocess.Popen(
+                            ["wsl", "bash", "-c", command.strip()],
+                            stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                            text=True
+                        )
+                        stdout, stderr = process.communicate(input=password + "\n", timeout=30)
+                        result = subprocess.CompletedProcess(
+                            args=["wsl", "bash", "-c", command.strip()],
+                            returncode=process.returncode,
+                            stdout=stdout,
+                            stderr=stderr
+                        )
+                else:
+                    # Execute the command without sudo
+                    if current_os == "linux":
+                        print(colored("Using native Linux shell", "blue"))
+                        result = subprocess.run(command.strip(), 
+                                              shell=True, 
+                                              text=True, 
+                                              capture_output=True,
+                                              timeout=30)
+                    else:  # Windows with WSL
+                        print(colored("Using WSL", "blue"))
+                        result = subprocess.run(["wsl", "bash", "-c", command.strip()], 
+                                              text=True, 
+                                              capture_output=True,
+                                              timeout=30)
                 
                 # Display the actual output to user
                 if result.stdout:
@@ -166,6 +215,12 @@ CRITICAL RULES:
                         - officials: any official that matches the app or action needed, pip, npm, python -m etc...
 - Always verify success before proceeding
 - When task is COMPLETELY DONE, output exactly: "--PK--PK--PK--" because if the text is smaller that 3 characters, the temrinal wont run it
+
+SUDO PASSWORD HANDLING:
+- Commands requiring sudo access (starting with "sudo ") will automatically prompt for password
+- The application will securely ask for your password when needed
+- You can use sudo commands freely - the password will be handled automatically
+- Examples: sudo apt install, sudo snap install, sudo systemctl, etc.
 
 IMPORTANT: Commands will execute in real-time terminal. You can see the output directly.
 Use the terminal output to make informed decisions about the next step. also messages that are smaller than 5 characters wont get runned in the terminal, IF your command is small, like pwd, ls, or ANY OTHER COMMAND THAT IS SMALLER THAN 5 CHARACTERS, if a command is smaller than 5 characters, add a comment in front of it, a comment is a string, that we put in our commands to help the hummand/non machines find out that what this code does, meaning they wont actually DO anything, so, if a command is smaller than 5 characters, we can put a command in front of them, like this ```pwd #this is a comment to make the command bigger than 5 characters``` but if the command is ok, and more than 5 characters, like this ```sudo apt install cowsay``` theres no need to any comments, because our bridge to the terminal automatically finds it out and puts it in the terminal

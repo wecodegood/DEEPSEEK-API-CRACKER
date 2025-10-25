@@ -29,6 +29,12 @@ CRITICAL RULES:
 - Always verify success before proceeding to next step
 - When task is COMPLETELY DONE, output exactly: "PK"
 
+SUDO PASSWORD HANDLING:
+- Commands requiring sudo access (starting with "sudo ") will automatically prompt for password
+- The application will securely ask for your password when needed
+- You can use sudo commands freely - the password will be handled automatically
+- Examples: sudo apt install, sudo snap install, sudo systemctl, etc.
+
 IMPORTANT: Commands will execute in real-time terminal. You can see the output directly.
 Use the terminal output to make informed decisions about the next step.
 
