@@ -50,7 +50,7 @@ with sync_playwright() as p:
     # chatLoop(page)
     
     # Use Linux terminal mode (uncomment to enable)
-    chatLoop(page, lin=True)
+    chatLoop(page, lin=True, max_com=150)
 
 
 

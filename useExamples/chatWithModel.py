@@ -1,4 +1,4 @@
-def chatLoop(page, lin=False, sudo_password=None):
+def chatLoop(page, use=1, sudo_password=None, max_com=20):
     def normalChat(page):
         import os
         from initMods.GetLastResponse import GetLastResponse
@@ -39,7 +39,7 @@ def chatLoop(page, lin=False, sudo_password=None):
             # i just thinked that if i add a random print, it would make me look like a pro coder XD
             print()
 
-    def linuxChat(page, sudo_password=None, max_com=20):
+    def linuxChat(page, sudo_password=None):
         import os
         import subprocess
         import platform
@@ -533,10 +533,20 @@ COWSAY REMINDER:
             print(colored("=" * 50, "blue"))
             print()
 
-    # Route to appropriate chat function
-    if lin:
-        linuxChat(page, sudo_password)
-    # if AcsiiArter:
-    #   arterChat(page)
-    else:
-        normalChat(page)
+    # # Route to appropriate chat function
+    # if lin:
+    #     linuxChat(page, sudo_password)
+    # # if AcsiiArter:
+    # #   arterChat(page)
+    # else:
+    #     normalChat(page)
+
+
+    match use:
+        case 1:
+            chatLoop()
+        case 2:
+            linuxChat()
+        
+    
+
