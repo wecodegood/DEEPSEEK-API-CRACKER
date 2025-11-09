@@ -546,7 +546,7 @@ COWSAY REMINDER:
         case 1:
             chatLoop()
         case 2:
-            linuxChat()
+            linuxChat(page)
         
     
 

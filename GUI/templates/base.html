@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <title>DeepSeek-Api-Cracker</title>
+</head>
+<body>
+    <div class="MAIN">
+        <div class="L">
+            <h1>Navigation</h1>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            
+            <div style="margin-top: auto; padding-top: 20px;">
+                <p>Additional information or widgets can go here.</p>
+            </div>
+        </div>
+        
+        <div class="R">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

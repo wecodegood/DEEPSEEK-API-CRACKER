@@ -28,7 +28,7 @@ with sync_playwright() as p:
 
 
     browser = p.firefox.launch(
-        headless=False,
+        headless=True,
         # slow_mo=2000
     )
 
@@ -50,7 +50,7 @@ with sync_playwright() as p:
     # chatLoop(page)
     
     # Use Linux terminal mode (uncomment to enable)
-    chatLoop(page, lin=True, max_com=150)
+    chatLoop(page, use=2, sudo_password=8088)
 
 
 
