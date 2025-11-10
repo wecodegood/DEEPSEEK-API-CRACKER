@@ -51,6 +51,7 @@ with sync_playwright() as p:
     
     # Use Linux terminal mode (uncomment to enable)
     chatLoop(page, use=2, sudo_password=8088)
+    
 
 
 

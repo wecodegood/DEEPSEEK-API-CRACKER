@@ -508,17 +508,17 @@ Exit code: {result.returncode}
                             output_info = f"Command executed: {response.strip()}\n(No output captured)"
 
                         follow_up = f"""
-{output_info}
+                {output_info}
 
-Continue with the next step for: {task}
-Remember: When completely done, output exactly: "--PK--PK--PK--"
+                Continue with the next step for: {task}
+                Remember: When completely done, output exactly: "--PK--PK--PK--"
 
-COWSAY REMINDER:
-- Use cowsay for friendly communication and status updates
-- When showing results or confirming completion, use cowsay
-- Examples: cowsay "Step completed!" or cowsay "Here are the results!"
-- Use cowsay strategically to connect with the user
-"""
+                COWSAY REMINDER:
+                - Use cowsay for friendly communication and status updates
+                - When showing results or confirming completion, use cowsay
+                - Examples: cowsay "Step completed!" or cowsay "Here are the results!"
+                - Use cowsay strategically to connect with the user
+                """
                         SendMessage(page, follow_up)
 
             if command_count >= max_commands:
@@ -547,6 +547,4 @@ COWSAY REMINDER:
             chatLoop()
         case 2:
             linuxChat(page)
-        
-    
-
+            
